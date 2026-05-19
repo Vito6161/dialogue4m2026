@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveInput = Vector2.zero;
     private Rigidbody rb;
 
+    private Moeda moeda;
+    public int coins = 0;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -27,6 +30,9 @@ public class PlayerController : MonoBehaviour
 
         // Good defaults for a rolling ball
         rb.interpolation = RigidbodyInterpolation.Interpolate;
+        
+        moeda.OnCoinsChanged += () => coins++;
+        
     }
 
     /// <summary>
@@ -100,5 +106,8 @@ public class PlayerController : MonoBehaviour
             InteractOM.Interact();
         }
     }
+    
+    
+    
 }
 
