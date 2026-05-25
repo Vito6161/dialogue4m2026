@@ -18,9 +18,7 @@ public class PlayerController : MonoBehaviour
     // internal storage for input
     private Vector2 moveInput = Vector2.zero;
     private Rigidbody rb;
-
-    private Moeda moeda;
-    public int coins = 0;
+    
 
     void Awake()
     {
@@ -30,8 +28,6 @@ public class PlayerController : MonoBehaviour
 
         // Good defaults for a rolling ball
         rb.interpolation = RigidbodyInterpolation.Interpolate;
-        
-        moeda.OnCoinsChanged += () => coins++;
         
     }
 

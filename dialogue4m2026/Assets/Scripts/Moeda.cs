@@ -3,9 +3,7 @@ using UnityEngine;
 
 public class Moeda : MonoBehaviour
 {
-    public int coins;
-    
-    public event Action OnCoinsChanged;
+    public static event Action OnCoinsChanged;
 
     private void OnTriggerEnter(Collider other)
     {
