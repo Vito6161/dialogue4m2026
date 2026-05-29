@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     // internal storage for input
     private Vector2 moveInput = Vector2.zero;
     private Rigidbody rb;
+
+    int moedas;
     
 
     void Awake()
@@ -30,6 +32,8 @@ public class PlayerController : MonoBehaviour
         rb.interpolation = RigidbodyInterpolation.Interpolate;
         
     }
+
+    
 
     /// <summary>
     /// Callback expected to be wired from a PlayerInput (Behavior = Invoke Unity Events)
@@ -102,7 +106,17 @@ public class PlayerController : MonoBehaviour
             InteractOM.Interact();
         }
     }
-    
+
+    void OnEnable()
+    {
+        Moeda.CollectedCoins += ChangeCoins;
+    }
+
+    void ChangeCoins()
+    {
+        moedas++;
+        PlayerOM.TriggerCoinsChange();
+    }    
     
     
 }

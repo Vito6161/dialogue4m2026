@@ -1,16 +1,16 @@
-using System;
 using UnityEngine;
+using System;
 
 public class Moeda : MonoBehaviour
 {
-    public static event Action OnCoinsChanged;
+    public static event Action CollectedCoins;
 
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
-        {
-            OnCoinsChanged?.Invoke();
-            Destroy(gameObject);
-        }
+        
+        if(other.CompareTag("Player")) CollectedCoins?.Invoke();
+        Destroy(gameObject);
     }
 }
+
+
